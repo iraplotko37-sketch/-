@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #f4f2ee;
+  --color-bg-elevated: #fffcf7;
+  --color-fg: #1a1916;
+  --color-muted: #6b6860;
+  --color-subtle: #8f8b82;
+  --color-border: #e2ddd4;
+  --color-accent: #1f4d46;
+  --color-accent-fg: #f4f2ee;
+  --color-bus: #1f4d46;
+  --color-trolley: #2c4a6e;
+  --color-paper: #ffffff;
+  --color-danger: #8b3a32;
+
+  --font-sans: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+
+  --shadow-panel:
+    0 0 0 1px rgba(26, 25, 22, 0.06),
+    0 1px 2px -1px rgba(26, 25, 22, 0.06),
+    0 10px 28px -12px rgba(26, 25, 22, 0.14);
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    min-height: 100%;
+    background: var(--color-bg);
+    color: var(--color-fg);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+.maplibregl-map {
+  font-family: var(--font-sans);
+}
+
+.maplibregl-ctrl-attrib {
+  font-size: 10px;
+  background: color-mix(in oklab, var(--color-bg-elevated) 88%, transparent) !important;
+}
+
+.maplibregl-popup-content {
+  font-family: var(--font-sans);
+  background: var(--color-bg-elevated);
+  color: var(--color-fg);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-panel);
+  padding: 10px 12px;
+}
+
+.maplibregl-popup-anchor-bottom .maplibregl-popup-tip {
+  border-top-color: var(--color-bg-elevated);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
